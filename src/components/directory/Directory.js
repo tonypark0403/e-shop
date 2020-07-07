@@ -1,8 +1,8 @@
 import React from 'react';
 
-import MenuItem from '../menu-item/MenuItem';
-import './Directory.scss';
-import { sections } from './data';
+import MenuItem from '../menu-item';
+import './directory.scss';
+import { sections } from './directory.data';
 
 const Directory = () => {
   const sectionList = sections;

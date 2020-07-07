@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
-import './MenuItem.scss';
+import './menu-item.scss';
 
 const MenuItem = ({ title, imageUrl, size, history, match, linkUrl }) => {
   return (
@@ -27,7 +27,7 @@ const MenuItem = ({ title, imageUrl, size, history, match, linkUrl }) => {
 MenuItem.propTypes = {
   title: PropTypes.string.isRequired,
   imageUrl: PropTypes.string.isRequired,
-  size: PropTypes.string.isRequired,
+  size: PropTypes.string,
   history: PropTypes.object,
   linkUrl: PropTypes.string.isRequired,
 };

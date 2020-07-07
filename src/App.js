@@ -1,16 +1,16 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import Home from './pages/Home';
-import Hats from './pages/Hats';
+import Home from './pages/home';
+import Shop from './pages/shop';
 
 import './App.css';
 
 function App() {
   return (
     <Switch className='App'>
+      <Route path='/shop' component={Shop} />
       <Route exact path='/' component={Home} />
-      <Route path='/hats' component={Hats} />
     </Switch>
   );
 }
