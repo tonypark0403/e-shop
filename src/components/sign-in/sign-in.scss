@@ -6,4 +6,12 @@
   .title {
     margin: 10px 0;
   }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    @media (max-width: 900px) {
+      flex-wrap: wrap;
+    }
+  }
 }
