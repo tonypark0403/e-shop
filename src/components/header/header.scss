@@ -21,6 +21,7 @@
     .option {
       padding: 10px 15px;
       position: relative;
+      cursor: pointer;
       &::after {
         content: '';
         position: absolute;
