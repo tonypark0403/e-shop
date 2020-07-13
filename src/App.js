@@ -40,11 +40,11 @@ class App extends React.Component {
             },
             () => {
               //callback is like a promise~, after changing state
-              console.log('callback state: ', this.state);
+              // console.log('callback state: ', this.state);
             }
           );
 
-          console.log(this.state);
+          // console.log(this.state);
         });
       }
 

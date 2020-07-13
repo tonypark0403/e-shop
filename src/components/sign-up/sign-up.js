@@ -38,7 +38,7 @@ class SignUpContainer extends Component {
       );
 
       await createUserProfileDocument(user, { displayName });
-      // displayName은 email signup시 null이라 따로 아규먼트로 넣어줌
+      // displayName is null for email sign up so it should be seperated
 
       //when sucess, the values are reset
       this.setState({

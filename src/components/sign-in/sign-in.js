@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SignIn from './sign-in.presenter';
+import { auth, signInWithGoogle } from '../../firebase/firebase.utils';
 
 class SignInContainer extends Component {
   constructor(props) {
@@ -19,10 +20,17 @@ class SignInContainer extends Component {
     });
   };
 
-  handleSubmit = (event) => {
+  handleSubmit = async (event) => {
     event.preventDefault();
 
-    this.setState({ email: '', password: '' });
+    const { email, password } = this.state;
+
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
+      this.setState({ email: '', password: '' });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   render() {
@@ -31,6 +39,7 @@ class SignInContainer extends Component {
         user={this.state}
         handleChange={this.handleChange}
         handleSubmit={this.handleSubmit}
+        signInWithGoogle={signInWithGoogle}
       />
     );
   }

@@ -1,11 +1,10 @@
 import React from 'react';
 import FormInput from '../form-input';
 import CustomButton from '../custom-button';
-import { signInWithGoogle } from '../../firebase/firebase.utils';
 
 import './sign-in.scss';
 
-const SignIn = ({ user, handleSubmit, handleChange }) => {
+const SignIn = ({ user, handleSubmit, handleChange, signInWithGoogle }) => {
   const { email, password } = user;
   return (
     <div className='sign-in'>

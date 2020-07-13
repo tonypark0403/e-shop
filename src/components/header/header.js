@@ -15,7 +15,7 @@ const Header = ({ currentUser }) => {
     const handler = (e) => setMobile(e.matches);
     window.matchMedia('(max-width: 400px)').addListener(handler);
   }, [isMobile]);
-  console.log(isMobile);
+  // console.log(isMobile);
   return (
     <>
       <div className='header'>
