@@ -30,7 +30,7 @@ const SignIn = ({ user, handleSubmit, handleChange, signInWithGoogle }) => {
         />
         <div className='buttons'>
           <CustomButton type='submit'> Sign in </CustomButton>
-          <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
+          <CustomButton type='button' onClick={signInWithGoogle} isGoogleSignIn>
             Google
           </CustomButton>
         </div>
