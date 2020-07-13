@@ -45,6 +45,12 @@
   }
 }
 
+@media (max-width: 530px) {
+  .header {
+    min-width: 215px;
+  }
+}
+
 .mobile {
   width: 100%;
   display: flex;
