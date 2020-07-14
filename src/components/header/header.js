@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './header.scss';
+import { useSelector } from 'react-redux';
 
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 import { auth } from '../../firebase/firebase.utils';
+import './header.scss';
 
-const Header = ({ currentUser }) => {
+const Header = () => {
+  const { currentUser } = useSelector((state) => state.user); // mapStateToProps
+  console.log('currentUser:', currentUser);
   const [isClick, setClick] = useState(false);
   const [isMobile, setMobile] = useState(
     window.matchMedia('(max-width: 400px)').matches
@@ -77,3 +80,13 @@ const Header = ({ currentUser }) => {
 };
 
 export default Header;
+
+// when class component
+// const mapStateToProps = state => ({
+//   currentUser: state.user.currentUser
+// });
+
+// export default connect(
+//   mapStateToProps,
+//   null
+// )(Header);
