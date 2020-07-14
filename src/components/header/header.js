@@ -4,6 +4,8 @@ import { useSelector } from 'react-redux';
 
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 import { auth } from '../../firebase/firebase.utils';
+import CartIcon from '../cart/cart-icon/cart-icon';
+import CartDropdown from '../cart/cart-dropdown/cart-dropdown';
 import './header.scss';
 
 const Header = () => {
@@ -42,6 +44,7 @@ const Header = () => {
                 SIGN IN
               </Link>
             )}
+            <CartIcon />
           </div>
         ) : (
           <div className='menu' onClick={() => setClick(!isClick)}>
@@ -73,8 +76,10 @@ const Header = () => {
               SIGN IN
             </Link>
           )}
+          <CartIcon />
         </div>
       )}
+      <CartDropdown />
     </>
   );
 };
