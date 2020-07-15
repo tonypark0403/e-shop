@@ -1,6 +1,6 @@
 import React from 'react';
 
-import CollectionPreview from '../../components/collection-preview';
+import CollectionPreview from '../../components/collection/collection-preview';
 
 const Shop = ({ data }) => {
   return (

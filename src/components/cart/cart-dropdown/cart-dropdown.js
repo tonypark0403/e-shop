@@ -3,10 +3,10 @@ import React from 'react';
 import CustomButton from '../../custom-button';
 import './cart-dropdown.scss';
 
-const CartDropdown = () => (
-  <div className='cart-dropdown'>
+const CartDropdown = ({ isMobile }) => (
+  <div className={`${isMobile ? 'mobile-position' : ''} cart-dropdown`}>
     <div className='cart-items' />
-    <CustomButton cart-button>CHECKOUT</CustomButton>
+    <CustomButton cart-button='true'>CHECKOUT</CustomButton>
   </div>
 );
 

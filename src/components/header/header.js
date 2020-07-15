@@ -1,25 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 import { auth } from '../../firebase/firebase.utils';
 import CartIcon from '../cart/cart-icon/cart-icon';
 import CartDropdown from '../cart/cart-dropdown/cart-dropdown';
 import './header.scss';
+import { toggleCartHidden } from '../../redux/cart/cart.actions';
 
 const Header = () => {
   const { currentUser } = useSelector((state) => state.user); // mapStateToProps
+  const { hidden } = useSelector((state) => state.cart); // mapStateToProps
+  const dispatch = useDispatch();
   console.log('currentUser:', currentUser);
   const [isClick, setClick] = useState(false);
   const [isMobile, setMobile] = useState(
-    window.matchMedia('(max-width: 400px)').matches
+    window.matchMedia('(max-width: 430px)').matches
   );
 
   useEffect(() => {
     const handler = (e) => setMobile(e.matches);
-    window.matchMedia('(max-width: 400px)').addListener(handler);
-  }, [isMobile]);
+    window.matchMedia('(max-width: 430px)').addListener(handler);
+    if (isMobile) {
+      dispatch(toggleCartHidden(isMobile));
+    }
+  }, [isMobile, dispatch]);
   // console.log(isMobile);
   return (
     <>
@@ -79,7 +85,7 @@ const Header = () => {
           <CartIcon />
         </div>
       )}
-      <CartDropdown />
+      {hidden ? null : <CartDropdown isMobile={isMobile} />}
     </>
   );
 };
